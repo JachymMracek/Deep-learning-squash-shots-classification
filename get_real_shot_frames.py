@@ -15,11 +15,11 @@ from PIL import Image
 ################################################################################
 
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--videos_path",default =r"C:\Users\jachy\Documents\ShareX\Screenshots\2026-05", help="Please, write path to video dataset")
-argument_parser.add_argument("--yolo_weights_ball",default =r"D:\FOLDER_OF_FINAL_BACHELOR_THESIS\yolo_ball_dataset\yolo_squash_ball_trained\weights\best.pt", help="Please, write path to yolo ball weights")
-argument_parser.add_argument("--convexnet_shot_weigths",default =r"D:\FOLDER_OF_FINAL_BACHELOR_THESIS\ball_hit_model.pth", help="Please, write path to shot convext classificator")
-argument_parser.add_argument("--yolo_hit_model",default =r"D:\FOLDER_OF_FINAL_BACHELOR_THESIS\hit_dataset\yolo_hit_ball\weights\best.pt", help="Please, write path to hit yolo model")
-argument_parser.add_argument("--output_dataset",default =r"C:\Users\jachy\CORRECT_CODES", help="Please, write path to output dataset")
+argument_parser.add_argument("--videos_path",default =r"", help="Please, write path to video dataset")
+argument_parser.add_argument("--yolo_weights_ball",default =r"", help="Please, write path to yolo ball weights")
+argument_parser.add_argument("--convexnet_shot_weigths",default =r"", help="Please, write path to shot convext classificator")
+argument_parser.add_argument("--yolo_hit_model",default =r"", help="Please, write path to hit yolo model")
+argument_parser.add_argument("--output_dataset",default =r"", help="Please, write path to output dataset")
 
 WIDTH = 640
 HEIGHT = 360
