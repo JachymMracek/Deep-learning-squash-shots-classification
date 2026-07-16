@@ -10,7 +10,7 @@ get_data_from_videos.py – collects frames from videos for manual annotation (s
 
 get_data_by_yolo.py – automatically creates a YOLO dataset, frames are annotated by an already trained YOLO ball detector.
 
-annotatorMAKING.py – manual annotation tool, bounding boxes are created by clicking on the image and saved in YOLO format.
+annotator.py – manual annotation tool, bounding boxes are created by clicking on the image and saved in YOLO format.
 
 help_methods.py – helper methods for the manual annotation tool (mouse click handling on the image).
 
