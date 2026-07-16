@@ -2,8 +2,16 @@ import os
 import argparse
 import cv2
 
+
+
+################################################################################
+################################################################################
+###################### split video to frames ###################################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--video_dataset_path",default = r"",help="Please, write path to video dataset")
+argument_parser.add_argument("--video_dataset_path",default = r"",help="Please, write path to video dataset not only one video")
 argument_parser.add_argument("--output_frames_path",default = r"",help="Please, write output frame where the frames should be")
 
 def main():

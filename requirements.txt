@@ -1,0 +1,11 @@
+numpy
+opencv-python
+torch
+torchvision
+ultralytics
+Pillow
+matplotlib
+scikit-learn
+shapely
+overrides
+PyYAML

@@ -7,6 +7,15 @@ import cv2
 
 # https://medium.com/@mervegamzenar/spatial-data-analysis-shapely-fe72d65e63bf
 
+
+
+################################################################################
+################################################################################
+############################ test yolo and get metrics #########################
+################################################################################
+################################################################################
+
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--dataset_path",default = r"",help="Please, write path to dataset with images and labels")
 argument_parser.add_argument("--model_weights_path",default = r"", help="Please, write path to yolo weights")
@@ -34,7 +43,7 @@ def yolo_prediction(frame,yolo_model,NOT_FINDED = ()):
     y_min = y_center - height / 2
     y_max = y_center + height / 2
     
-    return x_min,y_min,x_max,y_max
+    return (x_min,y_min,x_max,y_max)
 
 def change_yolo_metrics(yolo_bounding_box_prediction,label_bounding_box,metrics):
     

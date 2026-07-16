@@ -4,6 +4,15 @@ import argparse
 from dataclasses import dataclass
 import cv2
 
+
+################################################################################
+################################################################################
+############################ get TrackNetV1 performance ########################
+################################################################################
+################################################################################
+
+
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--dataset_path",default = r"",help="Please, write path to hand anotated last frames")
 argument_parser.add_argument("--videos_path",default = r"",help="Please, write path were are videos of size three")
@@ -84,14 +93,14 @@ def print_metrics(metrics):
     print("accuracy:", (metrics.TP + metrics.TN) / (metrics.TP + metrics.TN + metrics.FP + metrics.FN))
 
 
-def create(dataset_frame_path, trackNet_test_folder_videos):
+def create(dataset_frame_path, trackNet_test_folder_videos,WIDTH = 640,HEIGHT = 360):
 
     metrics = Metrics()
 
     for video_name in os.listdir(trackNet_test_folder_videos):
         video_path = os.path.join(trackNet_test_folder_videos, video_name)
 
-        ball_track = infer_on_video.main("trackNetV1_test_video", video_path)
+        ball_track = infer_on_video.main("trackNetV1_test_video", video_path) # https://github.com/yastrebksv/TrackNet
 
         frame_name = get_frame_name(video_name)
         frame_path = os.path.join(dataset_frame_path, "images", "test", f"{frame_name}.jpg")
@@ -101,9 +110,9 @@ def create(dataset_frame_path, trackNet_test_folder_videos):
 
         if ball_track[-1] == (None, None):
             last_frame_ball_position = None
+            
         else:
-            last_frame_ball_position = (int(float(ball_track[-1][0])*width/640),
-                                        int(float(ball_track[-1][1])*height/360))
+            last_frame_ball_position = (int(float(ball_track[-1][0])*width/640),int(float(ball_track[-1][1])*height/360))
 
         hand_label = get_label_corners(dataset_frame_path, frame_name, height, width)
 

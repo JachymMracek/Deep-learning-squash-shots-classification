@@ -9,14 +9,14 @@ import utils
 
 ################################################################################
 ################################################################################
-##################### Automative squash ball dataset creator ###################
+############################## Get frames by Yolo ##############################
 ################################################################################
 ################################################################################
 
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--path_videos_input",default = r"", help="Please, write path to video dataset")
-argument_parser.add_argument("--path_frames_output",default = r"", help="Please, write path to folder where images will be saved.")
-argument_parser.add_argument("--yolo_path_weights",default = r"", help="Please, write a path to yolo weights")
+argument_parser.add_argument("--path_videos_input",default = r"C:\Users\jachy\Documents\ShareX\Screenshots\2026-05", help="Please, write path to video dataset")
+argument_parser.add_argument("--path_frames_output",default = r"C:\Users\jachy\CORRECT_CODES", help="Please, write path to folder where images will be saved.")
+argument_parser.add_argument("--yolo_path_weights",default = r"D:\FOLDER_OF_FINAL_BACHELOR_THESIS\yolo_ball_dataset\yolo_squash_ball_trained\weights\best.pt", help="Please, write a path to yolo weights")
 
 class AutomativeFrameCollector(VideoReader):
     

@@ -5,6 +5,12 @@ import argparse
 # SOURCES:
 # https://www.geeksforgeeks.org/python/python-create-video-using-multiple-images-using-opencv/
 
+################################################################################
+################################################################################
+######################  Get TrackNet test videos with 3 frames #################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--folder_triples",default = r"", help="Please,path to frames of triples")
 argument_parser.add_argument("--video_output_folder",default = r"", help="Please, output path were videos of size three will be")

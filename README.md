@@ -10,9 +10,7 @@ get_data_from_videos.py – collects frames from videos for manual annotation (s
 
 get_data_by_yolo.py – automatically creates a YOLO dataset, frames are annotated by an already trained YOLO ball detector.
 
-annotator.py – manual annotation tool, bounding boxes are created by clicking on the image and saved in YOLO format.
-
-help_methods.py – helper methods for the manual annotation tool (mouse click handling on the image).
+annotatorMAKING.py – manual annotation tool, bounding boxes are created by clicking on the image and saved in YOLO format.
 
 create_TrackNet_labels.py – creates a dataset in TrackNet format (game/Clip folders + Label.csv) using YOLO ball detection.
 
@@ -59,3 +57,10 @@ utils.py – helper functions (video count, train/test split, ball coordinates).
 TrackNet V1 – unofficial PyTorch implementation: https://github.com/yastrebksv/TrackNet
 
 TrackNet V5 – official implementation: https://github.com/codelancera-offical/TrackNetV5-SDK
+
+External projects were modified for my purposes, such as splitting the dataset correctly, getting ball positions, evaluating models, and training the models. However, they are external projects and need to be cloned separately. I am not the author of these external projects, which is why I do not include their code in the bachelor thesis attachments. For the same reason, I do not include the YouTube images or the models trained on them, as this could raise copyright issues.
+
+## Libraries
+
+If one of the libraries is not installed on your computer, run pip install -r requirements.txt
+

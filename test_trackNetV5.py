@@ -1,13 +1,20 @@
-# import infer_on_video
 import os
 import argparse
 from dataclasses import dataclass
 import cv2
 
+
+################################################################################
+################################################################################
+############################ get TrackNetV5 performance ########################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--dataset_path",default = r"",help="Please, write path to hand anotated last frames")
 argument_parser.add_argument("--videos_path",default = r"",help="Please, write path where are videos of size three")
 
+BALL_POSITIONS = [] # There will be positions of the balls detect it by TrackNet V5 for example: (2,7). Ball positions are in tuples
 
 @dataclass
 class Metrics:
@@ -58,16 +65,12 @@ def get_label_corners(dataset_frame_path,frame_name,video_height,video_width):
     x_right = (x_center + width / 2)*video_width
     y_up = (y_center - height / 2)*video_height
     y_down = (y_center + height / 2)*video_height
-    
-    print(x_left,y_up,x_right,y_down)
 
     return (x_left,y_up,x_right,y_down)
 
 def create(dataset_frame_path,trackNet_test_folder_videos):
     
     metrics = Metrics()
-    
-    ball_positions = []
     
     for i,video_name in enumerate(os.listdir(trackNet_test_folder_videos)):
         video_path = os.path.join(trackNet_test_folder_videos,video_name)
@@ -79,7 +82,7 @@ def create(dataset_frame_path,trackNet_test_folder_videos):
         
         height,width,_ = frame.shape
         
-        last_frame_ball_position = None if i >= len(ball_positions) or ball_positions[i] is None else (int(ball_positions[i][0]*width/512),int(ball_positions[i][1]*height/288))
+        last_frame_ball_position = None if i >= len(BALL_POSITIONS) or BALL_POSITIONS[i] is None else (int(BALL_POSITIONS[i][0]*width/512),int(BALL_POSITIONS[i][1]*height/288))
 
         hand_label = get_label_corners(dataset_frame_path,frame_name,height,width)
         

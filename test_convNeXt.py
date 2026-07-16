@@ -7,11 +7,18 @@ from sklearn.metrics import ConfusionMatrixDisplay, precision_score, recall_scor
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+################################################################################
+################################################################################
+############################ get convNexT performance ##########################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--folder_of_hit_images",default =r"",help="Please, write path to folder with shot images")
 argument_parser.add_argument("--convexnet_weights",default = r"",help="Please, write path to the convNeXt model weights")
+argument_parser.add_argument("--classes",default=["boast", "cross", "drive", "drop"],help='["boast", "cross", "drive", "drop"] or ["not hit", "hit"]')
 
-def eval_dataset(phase_dataloader,model):
+def eval_dataset(phase_dataloader,model,classes):
     
     all_predictions = []
     all_labels = []
@@ -34,7 +41,7 @@ def eval_dataset(phase_dataloader,model):
     f1 = f1_score(all_labels,all_predictions,average="macro")
     accuracy = accuracy_score(all_labels,all_predictions)
     
-    ConfusionMatrixDisplay.from_predictions(all_labels,all_predictions,display_labels=["boast","cross","drive","drop"])
+    ConfusionMatrixDisplay.from_predictions(all_labels,all_predictions,display_labels=classes)
     
     plt.show()
     
@@ -52,6 +59,7 @@ def main(TRANFORMATOR = transforms.Compose([transforms.Resize(224),transforms.Ce
     args = argument_parser.parse_args()
     folder_of_hit_images = args.folder_of_hit_images
     convexnet_model_weights = args.convexnet_weights
+    classes = args.classes
     
     model = torch.load(convexnet_model_weights,weights_only=False)
     
@@ -59,7 +67,7 @@ def main(TRANFORMATOR = transforms.Compose([transforms.Resize(224),transforms.Ce
             
     dataloader = torch.utils.data.DataLoader(dataset,batch_size=BATCH_SIZE,shuffle=False,num_workers=NUM_WORKERS)
     
-    eval_dataset(dataloader,model)
+    eval_dataset(dataloader,model,classes)
 
 if __name__ == "__main__":
     main()

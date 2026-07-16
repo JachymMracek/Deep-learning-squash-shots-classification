@@ -4,8 +4,15 @@ import cv2
 from annotator import ImageData
 import argparse
 
+
+################################################################################
+################################################################################
+######################    Get folder with last frames ##########################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--dataset_of_triples_path",default = r"",help="Please, write path to video dataset of triples")
+argument_parser.add_argument("--dataset_of_triples_path",default=r"",help="Please, write path to video dataset of triples")
 argument_parser.add_argument("--last_triple_frame_dataset_path",default = r"", help="Please, write output path where last frames will be saved")
 
 def anotate_last_frame_triples(dataset_path,last_triple_frame_dataset_path,LAST_FRAME_FROM_TRIPLE_FOLDER_NAME = "last_triple_frames"):

@@ -23,6 +23,14 @@ import utils
 # https://docs.pytorch.org/tutorials/beginner/saving_loading_models.html
 # https://apxml.com/courses/getting-started-with-pytorch/chapter-5-efficient-data-handling/data-transformations-torchvision-transforms
 
+
+################################################################################
+################################################################################
+############################## Train ConvNexT ##################################
+################################################################################
+################################################################################
+
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--root_image_folder",default=r"",
                              help = "root folder path to folder for classification where are splited train/val/test frames")
@@ -179,8 +187,10 @@ class Classificator:
         val_loss = []
         
         for epoch in range(EPOCHS):
+            
+            print("Current epoch is: " + str(epoch))
+            
             for phase_idx in range(COUNT_PHASES):
-                print(epoch)
                 
                 if phase_idx == cls.Phase.TRAIN.value:
                     model.train()

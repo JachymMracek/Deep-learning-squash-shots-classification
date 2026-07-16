@@ -3,12 +3,20 @@ from dataclasses import dataclass
 import numpy
 import cv2
 from enum import Enum
+import numpy
 import os
 import math
 import argparse
 
+
+################################################################################
+################################################################################
+############################# Create synthetic data ############################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--number_of_synthetic_shots",default = "5000", help="How many synthetic shots do you want for each class")
+argument_parser.add_argument("--number_of_synthetic_shots",default = "5000", help="How many synthetic shots do you wnat for each class")
 argument_parser.add_argument("--phase_folder",default = r"", help="Dataset where the synthetic data will be created, It creates for the given phase so folder needs be for train/val or test")
 
 SEED = 42
@@ -150,7 +158,7 @@ class SynthehticBoast(SyntheticShot):
         elif count_of_points_curve == 3:
             cls._draw_three_points(image_boast_trajectory_image,start_position_ball,end_position_ball,side)
         
-        elif not is_ball_seen_before_front_wall_hit:
+        elif not is_ball_seen_before_front_wall_hit and count_of_points_curve == 3:
             cls._draw_ball_not_seen_before_front_wall_hit(image_boast_trajectory_image,start_position_ball,end_position_ball,count_of_points_curve,side)
         
         else:
@@ -311,6 +319,7 @@ class SyntheticCross(SyntheticShot):
         
         shot_path = os.path.join(cross_dataset_phase_path,f"{i}.png")
         
+        os.makedirs(cross_dataset_phase_path,exist_ok=True)
         cv2.imwrite(shot_path,image_cross_trajectory_image)
         
     @classmethod
@@ -330,7 +339,7 @@ class SyntheticCross(SyntheticShot):
 class SyntheticDrive(SyntheticShot):
     
     """
-        generate randomly start position of the drive shot.
+        generate randomly angle of the drop shot.
     """
     
     @classmethod
@@ -522,7 +531,7 @@ class SyntheticDrop(SyntheticShot):
     Returns number of points in the synthetic shot.
         
     Arguments:
-        count_of_points_curve (int): Previous number of points in previous shot. Variable represents how many times was ball detected.
+        count_of_points_curve (int): Previous number of points in previous shot. Variable reresents how many times was ball detected.
     
     Returns:
         number of points in current shot (int)

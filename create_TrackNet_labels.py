@@ -12,6 +12,14 @@ import utils
 # https://www.geeksforgeeks.org/python/python-program-extract-frames-using-opencv/
 # https://stackoverflow.com/questions/25359288/how-to-know-total-number-of-frame-in-a-file-with-cv2-in-python
 
+
+################################################################################
+################################################################################
+######################    Creates TrackNet V1 frame and csv dataset ############
+################################################################################
+################################################################################
+
+
 @dataclass(frozen=True)
 class ProgressionImage:
     image:numpy.ndarray
@@ -114,9 +122,9 @@ class TrackNetImgsLabels:
 
         return labels_file,labels_writer
 
-    def create_img_labels(self,VIDEO_PATHS = r"",GAME_FOLDER_NAME = "game",
+    def create_img_labels(self,VIDEO_PATHS = r"C:\Users\jachy\Documents\ShareX\Screenshots\2026-05",GAME_FOLDER_NAME = "game",
                           CLIP_FOLDER_NAME = "Clip1",  # We have just one clip for each game
-                          TRACKNET_DATASET = r""):
+                          TRACKNET_DATASET = r"C:\Users\jachy\CORRECT_CODES"):
         
         os.makedirs(TRACKNET_DATASET,exist_ok=True)
         

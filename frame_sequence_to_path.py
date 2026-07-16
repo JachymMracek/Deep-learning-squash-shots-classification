@@ -5,6 +5,13 @@ import numpy
 from ultralytics import YOLO
 import utils
 
+
+################################################################################
+################################################################################
+################## From sequence of frames is drawn shot path ##################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--root_test_shots_folder",default = r"", help="Please, write path where are frames")
 argument_parser.add_argument("--output_folder",default = r"", help="Please, add path where the shot will be saved")

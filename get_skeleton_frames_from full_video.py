@@ -18,7 +18,7 @@ argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--videos_path",default = r"",help="Please, write path to video dataset")
 argument_parser.add_argument("--yolo_weights_path",default = r"",help="Please, write path of yolo squash ball detector")
 argument_parser.add_argument("--output_path",default = r"",help="Please, write path where frames will be saved")
-argument_parser.add_argument("--phase",default =r"",help="Please, typed you phase. train or test")
+argument_parser.add_argument("--phase",default =r"train",help="Please, typed you phase. train or test")
 
 
 """

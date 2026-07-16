@@ -5,18 +5,25 @@ import cv2
 
 # https://www.geeksforgeeks.org/python/python-draw-rectangular-shape-and-extract-objects-using-opencv/
 
+
+################################################################################
+################################################################################
+#################### Visualization of yolo prediction ##########################
+################################################################################
+################################################################################
+
 argument_parser = argparse.ArgumentParser()
 argument_parser.add_argument("--image_path",default = r"",help="Please, write path to image")
 argument_parser.add_argument("--yolo_weights",default = r"",help="Please, write path to yolo weights")
 
-def get_object_coordinates(yolo_model,frame):
+def get_object_coordinates(yolo_model,frame,WIDTH=640,HEIGHT=360):
     
     ball_boxes_prediction = yolo_model.predict(frame)[0].boxes
     
     if len(ball_boxes_prediction.data.tolist()) != 0:
         x_center,y_center,width,height = ball_boxes_prediction.xywhn.tolist()[0]
         
-        return (int(x_center*640),int(y_center*360),int(width*640),int(height*360))
+        return (int(x_center*WIDTH),int(y_center*HEIGHT),int(width*WIDTH),int(height*HEIGHT))
     
     return None
 

@@ -5,6 +5,13 @@ from ultralytics import YOLO
 from dataclasses import dataclass
 import math
 
+################################################################################
+################################################################################
+##Dataset where hit is detect it and where player posture with ball is made ####
+################################################################################
+################################################################################
+
+
 class HumanPostureBall:
     
     def __init__(self,YOLO_MODEL_NAME = "yolo26x-pose.pt") -> None:

@@ -7,13 +7,21 @@ import convexnet_prediction
 import torch
 import get_real_shot_frames
 
+
+################################################################################
+################################################################################
+########################### infer shot paths to the video ######################
+################################################################################
+################################################################################
+
+
 argument_parser = argparse.ArgumentParser() 
 argument_parser.add_argument("--video_path",default = r"", help="Please, write path to the input video")
 argument_parser.add_argument("--yolo_hit_model_path",default = r"", help="Please, write path to yolo hit model weights")
 argument_parser.add_argument("--yolo_ball_model_path",default =r"", help="Please, write path to yolo ball model weights")
 argument_parser.add_argument("--video_output_path",default = r"", help="Please, write path to folder where the output video will be saved")
 argument_parser.add_argument("--convexNeXt_path",default = r"", help="Please, write path to the convNeXt model weights")
-argument_parser.add_argument("--video_name",default = r"", help="Please, what should by the name of the output video. Include .mp4")
+argument_parser.add_argument("--video_name",default = r"video.mp4", help="Please, what should by the name of the output video. Include .mp4")
 
 
 def get_ball_position(frame,yolo_model):
@@ -72,12 +80,9 @@ def draw_path_to_video(video_path,yolo_hit_model,yolo_ball,video_output,convexNe
     current_color_index = 0
     
     ball_positions = []
-    
     path_frames = []
     
-    i = 0
-    
-    while True and i < 1000:
+    while True:
             
             readable, frame = video_capturer.read()
             
@@ -106,8 +111,6 @@ def draw_path_to_video(video_path,yolo_hit_model,yolo_ball,video_output,convexNe
             
             else:
                 break
-            
-            i += 1
     
     create_video(path_frames,video_output,video_name,fps)
 

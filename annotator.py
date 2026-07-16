@@ -4,7 +4,7 @@ import argparse
 import os
 import shutil
 import yaml
-import help_methods
+import utils
 
 # https://www.geeksforgeeks.org/python/displaying-the-coordinates-of-the-points-clicked-on-the-image-using-python-opencv/
 # https://www.geeksforgeeks.org/python/how-to-iterate-over-files-in-directory-using-python/
@@ -14,6 +14,15 @@ import help_methods
 # https://www.geeksforgeeks.org/python/python-opencv-cv2-rectangle-method/
 # https://www.geeksforgeeks.org/python/reading-and-writing-yaml-file-in-python/
 # https://medium.com/@basit.javed.awan/resizing-multiple-images-and-saving-them-using-opencv-518f385c28d3
+
+
+
+################################################################################
+################################################################################
+#######################   Script for hand annotation ###########################
+################################################################################
+################################################################################
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--yolo_dataset",default=r"",help="Please, write output path where yolo dataset will be created")
@@ -102,7 +111,7 @@ class ImageData:
         clicks = []
 
         clickable_image = cv2.imread(image_path,1)
-        help_methods.click_on_image(clickable_image,CLICK_COUNT,clicks)
+        utils.click_on_image(clickable_image,CLICK_COUNT,clicks)
 
         height_image,width_image,_= clickable_image.shape
         
