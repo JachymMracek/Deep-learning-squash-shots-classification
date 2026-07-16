@@ -13,8 +13,8 @@ import argparse
 
 
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--yolo_dataset_path",default = r"D:\FOLDER_OF_FINAL_BACHELOR_THESIS\hit_dataset",help="Please, write path to root yolo dataset")
-argument_parser.add_argument("--convnext_dataset_path",default = r"C:\Users\jachy\CORRECT_CODES",help="Please, write output path where ConvexNeXt dataset will be created")
+argument_parser.add_argument("--yolo_dataset_path",default = r"",help="Please, write path to root yolo dataset")
+argument_parser.add_argument("--convnext_dataset_path",default = r"",help="Please, write output path where ConvexNeXt dataset will be created")
 
 
 """
