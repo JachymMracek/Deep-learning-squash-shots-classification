@@ -7,8 +7,8 @@ import argparse
 # https://discuss.pytorch.org/t/torch-max-and-softmax-confusion/80697
 
 argument_parser = argparse.ArgumentParser()
-argument_parser.add_argument("--convexnet_weights_path",default = r"D:\FOLDER_OF_FINAL_BACHELOR_THESIS\ball_hit_model.pth",help="Please, write path to the convNeXt model")
-argument_parser.add_argument("--frame_path",default = r"C:\Users\jachy\Documents\ShareX\Screenshots\2026-07\shot_comparision.png",help="Please, write path to the frame")
+argument_parser.add_argument("--convexnet_weights_path",default = r"",help="Please, write path to the convNeXt model")
+argument_parser.add_argument("--frame_path",default = r"",help="Please, write path to the frame")
 
 def convexnet_prediction(frame,convexnet_classificator):
     # https://docs.pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
