@@ -122,9 +122,9 @@ class TrackNetImgsLabels:
 
         return labels_file,labels_writer
 
-    def create_img_labels(self,VIDEO_PATHS = r"C:\Users\jachy\Documents\ShareX\Screenshots\2026-05",GAME_FOLDER_NAME = "game",
+    def create_img_labels(self,VIDEO_PATHS = r"",GAME_FOLDER_NAME = "game",
                           CLIP_FOLDER_NAME = "Clip1",  # We have just one clip for each game
-                          TRACKNET_DATASET = r"C:\Users\jachy\CORRECT_CODES"):
+                          TRACKNET_DATASET = r""):
         
         os.makedirs(TRACKNET_DATASET,exist_ok=True)
         
